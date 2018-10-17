@@ -3,7 +3,7 @@ const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
 
-const DISCORD_ID;
+const DISCORD_ID = '422582319459598337';
 
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
