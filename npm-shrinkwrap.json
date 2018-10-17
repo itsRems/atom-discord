@@ -3303,7 +3303,7 @@
     },
     "finalhandler": {
       "version": "1.1.1",
-      "resolved": "http://registry.npmjs.org/finalhandler/-/finalhandler-1.1.1.tgz",
+      "resolved": "https://registry.npmjs.org/finalhandler/-/finalhandler-1.1.1.tgz",
       "integrity": "sha512-Y1GUDo39ez4aHAw7MysnUD5JzYX+WaIj8I57kO3aEPT1fFRL4sr7mjei97FgnwhAyyzRYmQZaTHb2+9uZ1dPtg==",
       "dev": true,
       "requires": {
@@ -3459,7 +3459,7 @@
       "dev": true,
       "optional": true,
       "requires": {
-        "minipass": "2.2.4"
+        "minipass": "^2.2.1"
       }
     },
     "fs-write-stream-atomic": {
@@ -4742,7 +4742,7 @@
     },
     "http-errors": {
       "version": "1.6.3",
-      "resolved": "http://registry.npmjs.org/http-errors/-/http-errors-1.6.3.tgz",
+      "resolved": "https://registry.npmjs.org/http-errors/-/http-errors-1.6.3.tgz",
       "integrity": "sha1-i1VoC7S+KDoLW/TqLjhYC+HZMg0=",
       "dev": true,
       "requires": {
@@ -4771,7 +4771,7 @@
     },
     "http-proxy-middleware": {
       "version": "0.18.0",
-      "resolved": "http://registry.npmjs.org/http-proxy-middleware/-/http-proxy-middleware-0.18.0.tgz",
+      "resolved": "https://registry.npmjs.org/http-proxy-middleware/-/http-proxy-middleware-0.18.0.tgz",
       "integrity": "sha512-Fs25KVMPAIIcgjMZkVHJoKg9VcXcC1C8yb9JUgeDvVXY0S/zgVIhMb+qVswDIgtJe2DfckMSY2d6TuTEutlk6Q==",
       "dev": true,
       "requires": {
@@ -4896,7 +4896,7 @@
       "dev": true,
       "optional": true,
       "requires": {
-        "minimatch": "3.0.4"
+        "minimatch": "^3.0.4"
       }
     },
     "image-size": {
@@ -6353,18 +6353,16 @@
       "resolved": "https://registry.npmjs.org/minipass/-/minipass-2.2.4.tgz",
       "integrity": "sha512-hzXIWWet/BzWhYs2b+u7dRHlruXhwdgvlTMDKC6Cb1U7ps6Ac6yQlR39xsbjWJE377YTCtKwIXIpJ5oP+j5y8g==",
       "dev": true,
-      "optional": true,
       "requires": {
-        "safe-buffer": "5.1.1",
-        "yallist": "3.0.2"
+        "safe-buffer": "^5.1.1",
+        "yallist": "^3.0.0"
       },
       "dependencies": {
         "yallist": {
           "version": "3.0.2",
           "resolved": "https://registry.npmjs.org/yallist/-/yallist-3.0.2.tgz",
           "integrity": "sha1-hFK0u36Dx8GI2AQcGoN8dz1ti7k=",
-          "dev": true,
-          "optional": true
+          "dev": true
         }
       }
     },
@@ -6375,7 +6373,7 @@
       "dev": true,
       "optional": true,
       "requires": {
-        "minipass": "2.2.4"
+        "minipass": "^2.2.1"
       }
     },
     "mississippi": {
@@ -6514,9 +6512,9 @@
       "dev": true,
       "optional": true,
       "requires": {
-        "debug": "2.6.9",
-        "iconv-lite": "0.4.21",
-        "sax": "1.2.4"
+        "debug": "^2.1.2",
+        "iconv-lite": "^0.4.4",
+        "sax": "^1.2.4"
       }
     },
     "negotiator": {
@@ -6654,8 +6652,8 @@
       "dev": true,
       "optional": true,
       "requires": {
-        "abbrev": "1.1.1",
-        "osenv": "0.1.5"
+        "abbrev": "1",
+        "osenv": "^0.1.4"
       }
     },
     "normalize-package-data": {
@@ -6711,8 +6709,8 @@
       "dev": true,
       "optional": true,
       "requires": {
-        "ignore-walk": "3.0.1",
-        "npm-bundled": "1.0.3"
+        "ignore-walk": "^3.0.1",
+        "npm-bundled": "^1.0.1"
       }
     },
     "npm-run-path": {
@@ -6953,8 +6951,8 @@
       "dev": true,
       "optional": true,
       "requires": {
-        "os-homedir": "1.0.2",
-        "os-tmpdir": "1.0.2"
+        "os-homedir": "^1.0.0",
+        "os-tmpdir": "^1.0.0"
       }
     },
     "p-cancelable": {
@@ -7247,7 +7245,7 @@
       "dependencies": {
         "async": {
           "version": "1.5.2",
-          "resolved": "http://registry.npmjs.org/async/-/async-1.5.2.tgz",
+          "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz",
           "integrity": "sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo=",
           "dev": true
         }
