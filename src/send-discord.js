@@ -3,6 +3,8 @@ const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
 
+const DISCORD_ID = '422582319459598337';
+
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
 		targetLength = targetLength >> 0; //floor if number or convert non-number to 0;
@@ -42,12 +44,6 @@ const config = {
 		return [new RegExp(match[1], match[2]), matched[key]];
 	}))
 };
-
-if(!config.behaviour.appId){
-	var DISCORD_ID = '422582319459598337';
-}else {
-	var DISCORD_ID = config.behaviour.appId;
-}
 
 const normalize = (object) => {
 	Object.keys(object).forEach((k) => {
