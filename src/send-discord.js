@@ -2,14 +2,6 @@ const {ipcMain} = require('electron');
 const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
-atom.config.set('atom-discord-custom.test','lol');
-const DISCORD_ID = atom.config.get('atom-discord-custom.ID') || '422582319459598337';
-/*if(atom.config.get('atom-discord-custom.ID')) {
-	const DISCORD_ID = atom.config.get('atom-discord-custom.ID');
-}else {
-	atom.config.get('422582319459598337');
-	const DISCORD_ID = '422582319459598337';
-}*/
 
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
@@ -113,7 +105,11 @@ class DiscordSender {
 				this.destroied = false;
 				resolve();
 			});
-			rpc.login(DISCORD_ID).catch(reject);
+			if(config.behaviour.appId) {
+				rpc.login(config.behaviour.appId).catch(reject);
+			}else {
+				rpc.login('422582319459598337').catch(reject);
+			}
 		});
 	}
 
