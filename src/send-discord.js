@@ -110,6 +110,7 @@ class DiscordSender {
 			}else if(config.behaviour.properties.appId) {
 				rpc.login(config.behaviour.properties.appId).catch(reject);
 			}else {
+				console.log(config.behaviour.appId);
 				rpc.login('422582319459598337').catch(reject);
 			}
 		});
