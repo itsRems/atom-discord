@@ -44,9 +44,9 @@ const config = {
 };
 
 if(!config.behaviour.appId){
-	const DISCORD_ID = '422582319459598337';
+	var DISCORD_ID = '422582319459598337';
 }else {
-	const DISCORD_ID = config.behaviour.appId;
+	var DISCORD_ID = config.behaviour.appId;
 }
 
 const normalize = (object) => {
