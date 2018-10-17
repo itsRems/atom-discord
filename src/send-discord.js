@@ -2,6 +2,7 @@ const {ipcMain} = require('electron');
 const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
+atom.config.set('atom-discord-custom.test','lol');
 const DISCORD_ID = atom.config.get('atom-discord-custom.ID') || '422582319459598337';
 /*if(atom.config.get('atom-discord-custom.ID')) {
 	const DISCORD_ID = atom.config.get('atom-discord-custom.ID');
