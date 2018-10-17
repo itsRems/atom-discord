@@ -37,8 +37,8 @@ const config = {
 		default: require('../i18n/en-US.json'),
 		value: {}
 	},
-	directory: path.join(atom.getConfigDirPath(), 'atom-discord'),
-	path: path.join(atom.getConfigDirPath(), 'atom-discord', 'customize.json'),
+	directory: path.join(atom.getConfigDirPath(), 'atom-discord-custom'),
+	path: path.join(atom.getConfigDirPath(), 'atom-discord-custom', 'customize.json'),
 	customization: {},
 	usable: true
 };
@@ -64,7 +64,7 @@ const showError = (key, args, detail) => {
 };
 
 const initialize = async () => {
-	I18N_VALUE = require(`../i18n/${atom.config.get('atom-discord.i18n')}.json`);
+	I18N_VALUE = require(`../i18n/${atom.config.get('atom-discord-custom.i18n')}.json`);
 	remote.require(SEND_DISCORD_PATH);
 
 	// Generating directory
@@ -79,7 +79,7 @@ const initialize = async () => {
 		try {
 			await promisify(fs.mkdir)(config.directory);
 		} catch(err) {
-			showError('generate-failed', {file: 'atom-discord'}, err.stack);
+			showError('generate-failed', {file: 'atom-discord-custom'}, err.stack);
 			config.usable = false;
 		}
 	}
@@ -172,13 +172,13 @@ const saveCustomization = async () => {
 };
 
 const updateConfig = (
-	i18n = atom.config.get('atom-discord.i18n'),
-	privacy = atom.config.get('atom-discord.privacy'),
-	behaviour = atom.config.get('atom-discord.behaviour')
+	i18n = atom.config.get('atom-discord-custom.i18n'),
+	privacy = atom.config.get('atom-discord-custom.privacy'),
+	behaviour = atom.config.get('atom-discord-custom.behaviour')
 ) => {
 	config.i18n.value = require(`../i18n/${i18n}.json`);
 
-	ipcRenderer.send('atom-discord.config-update', {
+	ipcRenderer.send('atom-discord-custom.config-update', {
 		i18n: config.i18n.value,
 		privacy,
 		behaviour
@@ -198,7 +198,7 @@ const createLoop = () => {
 	});
 
 	atom.getCurrentWindow().on('close', () => {
-		ipcRenderer.send('atom-discord.offline', {id: rendererId});
+		ipcRenderer.send('atom-discord-custom.offline', {id: rendererId});
 		pluginOnline = false;
 	});
 
@@ -208,7 +208,7 @@ const createLoop = () => {
 	let projectName = null;
 
 	const updateData = () => {
-		ipcRenderer.send('atom-discord.data-update', {
+		ipcRenderer.send('atom-discord-custom.data-update', {
 			currEditor,
 			projectName
 		});
@@ -259,18 +259,18 @@ const createLoop = () => {
 	updater.updateData = updateData;
 
 	const rendererId = Math.random().toString(36).slice(2);
-	ipcRenderer.send('atom-discord.online', {id: rendererId});
+	ipcRenderer.send('atom-discord-custom.online', {id: rendererId});
 };
 
-atom.config.onDidChange('atom-discord.i18n', ({newValue}) => {
+atom.config.onDidChange('atom-discord-custom.i18n', ({newValue}) => {
 	updateConfig(newValue);
 });
 
-atom.config.onDidChange('atom-discord.privacy', ({newValue}) => {
+atom.config.onDidChange('atom-discord-custom.privacy', ({newValue}) => {
 	updateConfig(undefined, newValue);
 });
 
-atom.config.onDidChange('atom-discord.behaviour', ({newValue}) => {
+atom.config.onDidChange('atom-discord-custom.behaviour', ({newValue}) => {
 	updateConfig(undefined, undefined, newValue)
 });
 
@@ -280,11 +280,11 @@ module.exports = {
 			updateConfig();
 			createLoop();
 
-			atom.commands.add('atom-text-editor', "atom-discord:toggle", (ev) => {
-				ipcRenderer.send('atom-discord.toggle');
+			atom.commands.add('atom-text-editor', "atom-discord-custom:toggle", (ev) => {
+				ipcRenderer.send('atom-discord-custom.toggle');
 			});
 
-			atom.commands.add('atom-text-editor', "atom-discord:project-customize", (ev) => {
+			atom.commands.add('atom-text-editor', "atom-discord-custom:project-customize", (ev) => {
 				showCustomizeProject();
 			});
 		});
