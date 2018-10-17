@@ -3,7 +3,7 @@ const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
 
-const DISCORD_ID = '380510159094546443';
+const DISCORD_ID = '422582319459598337';
 
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
@@ -60,7 +60,7 @@ class DiscordSender {
 		this.projectName = null;
 		this.fileName = null;
 		this.largeImage = null;
-		this.startTimestamp = Math.floor(Date.now() / 1000);
+		this.startTimestamp = new Date().getTime() / 1000;
 
 		this.onlineRenderers = {};
 		this.rpc = null;

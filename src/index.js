@@ -317,6 +317,13 @@ module.exports = {
 					default: false
 				},
 
+				appId: {
+					title: "Discord Application ID",
+					description: "Use a custom Discord Application for total customization.",
+					type: "string",
+					default: '380510159094546443'
+				},
+
 				showFilenameOnLargeImage: {
 					title: "Show file name on large image",
 					description: "",
@@ -448,11 +455,6 @@ module.exports = {
 				{
 					value: "ja-JP",
 					description: "Japanese (Japan)"
-				},
-
-				{
-					value: "zh-CN",
-					description: "Chinese (China)"
 				}
 			],
 
