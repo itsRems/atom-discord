@@ -51,7 +51,6 @@ const normalize = (object) => {
 			delete object[k];
 		}
 	});
-
 	return object;
 };
 
@@ -287,24 +286,24 @@ sender.setupRpc().then((v) => {
 	sender.loop();
 });
 
-ipcMain.on('atom-discord.config-update', (event, {i18n, privacy: _privacy, behaviour: _behaviour}) => {
+ipcMain.on('atom-discord-custom.config-update', (event, {i18n, privacy: _privacy, behaviour: _behaviour}) => {
 	config.translations = i18n;
 	config.behaviour = _behaviour;
 	config.privacy = _privacy;
 });
 
-ipcMain.on('atom-discord.data-update', (event, {projectName, currEditor: fileName}) => {
+ipcMain.on('atom-discord-custom.data-update', (event, {projectName, currEditor: fileName}) => {
 	sender.updateActivity(projectName, fileName);
 });
 
-ipcMain.on('atom-discord.online', (event, {id}) => {
+ipcMain.on('atom-discord-custom.online', (event, {id}) => {
 	sender.setOnline(id);
 });
 
-ipcMain.on('atom-discord.offline', (event, {id}) => {
+ipcMain.on('atom-discord-custom.offline', (event, {id}) => {
 	sender.setOffline(id);
 });
 
-ipcMain.on('atom-discord.toggle', (event) => {
+ipcMain.on('atom-discord-custom.toggle', (event) => {
 	sender.toggle();
 });
