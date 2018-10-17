@@ -106,8 +106,10 @@ class DiscordSender {
 				resolve();
 			});
 			if(config.behaviour.appId) {
+				console.log(config.behaviour.appId);
 				rpc.login(config.behaviour.appId).catch(reject);
 			}else if(config.behaviour.properties.appId) {
+				console.log(config.behaviour.appId);
 				rpc.login(config.behaviour.properties.appId).catch(reject);
 			}else {
 				console.log(config.behaviour.appId);
