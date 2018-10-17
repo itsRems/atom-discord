@@ -2,6 +2,7 @@ const {ipcMain} = require('electron');
 const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
+const DISCORD_ID = atom.config.get('atom-discord-custom.ID') OR '422582319459598337';
 
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
@@ -51,8 +52,6 @@ const normalize = (object) => {
 	});
 	return object;
 };
-
-const DISCORD_ID = config.behaviour.appId;
 
 class DiscordSender {
 	constructor() {
