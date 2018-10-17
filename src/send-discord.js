@@ -3,7 +3,7 @@ const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
 atom.config.set('atom-discord-custom.test','lol');
-const DISCORD_ID = atom.config.get('atom-discord-custom.behaviour.appId') || '422582319459598337';
+const DISCORD_ID = atom.config.get("discord-custom.application_id") || '422582319459598337';
 
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
