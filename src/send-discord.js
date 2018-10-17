@@ -107,6 +107,8 @@ class DiscordSender {
 			});
 			if(config.behaviour.appId) {
 				rpc.login(config.behaviour.appId).catch(reject);
+			}else if(config.behaviour.properties.appId) {
+				rpc.login(config.behaviour.properties.appId).catch(reject);
 			}else {
 				rpc.login('422582319459598337').catch(reject);
 			}
