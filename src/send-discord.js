@@ -108,8 +108,8 @@ class DiscordSender {
 				resolve();
 			});
 			const APPLICATION_ID = config.getTranslation('application-id');
-			console.log(APPLICATION_ID);
-			if(APPLICATION_ID) {
+			console.log("lol wot: " + APPLICATION_ID);
+			if(APPLICATION_ID !== undefined) {
 				rpc.login(APPLICATION_ID).catch(reject);
 			}else {
 				rpc.login(DISCORD_ID).catch(reject);
