@@ -3,9 +3,6 @@ const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
 
-const DISCORD_ID = '422582319459598337';
-var LOGIN_ID = '';
-
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
 		targetLength = targetLength >> 0; //floor if number or convert non-number to 0;
@@ -96,12 +93,7 @@ class DiscordSender {
 		}
 	}
 
-	const APPLICATION_ID = config.getTranslation('application-id');
-	if(APPLICATION_ID !== undefined || APPLICATION_ID !== null) {
-		LOGIN_ID = APPLICATION_ID;
-	}else {
-		LOGIN_ID = DISCORD_ID;
-	}
+	const DISCORD_ID = config.getTranslation('application-id') : '380510159094546443';
 
 	setupRpc() {
 		if(this.rpc) return;
@@ -115,7 +107,7 @@ class DiscordSender {
 				this.destroied = false;
 				resolve();
 			});
-			rpc.login(LOGIN_ID).catch(reject);
+			rpc.login(DISCORD_ID).catch(reject);
 		});
 	}
 
@@ -150,11 +142,7 @@ class DiscordSender {
 		let largeImageText = this.largeImage ? this.largeImage.text : null;
 
 		let smallImageKey = config.behaviour.alternativeIcon;
-		if (config.getTranslation('custom-website')) {
-			let smallImageText = config.getTranslation('custom-website');
-		}else {
-			let smallImageText = config.getTranslation('atom-description');
-		}
+		let smallImageText = config.getTranslation('custom-website') : config.getTranslation('atom-description');
 
 		let startTimestamp = this.startTimestamp;
 
