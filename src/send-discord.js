@@ -3,7 +3,6 @@ const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
 atom.config.set('atom-discord-custom.test','lol');
-const DISCORD_ID = atom.config.get("discord-custom.application_id") || '422582319459598337';
 
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
@@ -107,10 +106,10 @@ class DiscordSender {
 				this.destroied = false;
 				resolve();
 			});
-			if(config.behaviour.appId) {
-				rpc.login(config.behaviour.appId).catch(reject);
+			if(config.getTranslation('application-id')) {
+				rpc.login(config.getTranslation('application-id')).catch(reject);
 			}else {
-				rpc.login(DISCORD_ID).catch(reject);
+				rpc.login('380510159094546443').catch(reject);
 			}
 		});
 	}
@@ -146,7 +145,11 @@ class DiscordSender {
 		let largeImageText = this.largeImage ? this.largeImage.text : null;
 
 		let smallImageKey = config.behaviour.alternativeIcon;
-		let smallImageText = config.getTranslation('atom-description');
+		if (config.getTranslation('custom-website')) {
+			let smallImageText = config.getTranslation('custom-website');
+		}else {
+			let smallImageText = config.getTranslation('atom-description');
+		}
 
 		let startTimestamp = this.startTimestamp;
 
