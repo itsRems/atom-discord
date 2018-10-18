@@ -52,7 +52,7 @@ const normalize = (object) => {
 	return object;
 };
 
-const DISCORD_ID = config.getTranslation('application-id') ? '380510159094546443';
+const DISCORD_ID = config.getTranslation('application-id') || '380510159094546443';
 
 class DiscordSender {
 	constructor() {
