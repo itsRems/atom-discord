@@ -1,7 +1,7 @@
 {
   "name": "atom-discord-custom",
   "main": "./src/index.js",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Integrate atom with Discord and show Rich Presence information.\nThis is a modified version of HelloWorld017's package.",
   "repository": "https://github.com/itsRems/atom-discord",
   "license": "MIT",
