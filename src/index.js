@@ -317,13 +317,6 @@ module.exports = {
 					default: false
 				},
 
-				appId: {
-					title: "Discord Application ID",
-					description: "Use a custom Discord Application for total customization.",
-					type: "string",
-					default: "502188191672041483"
-				},
-
 				showFilenameOnLargeImage: {
 					title: "Show file name on large image",
 					description: "",

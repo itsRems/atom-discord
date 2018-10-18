@@ -52,8 +52,6 @@ const normalize = (object) => {
 	return object;
 };
 
-const DISCORD_ID = '422582319459598337';
-
 class DiscordSender {
 	constructor() {
 		this.projectName = null;
@@ -107,8 +105,7 @@ class DiscordSender {
 				this.destroied = false;
 				resolve();
 			});
-			const logme = config.getTranslation('application-id');
-			rpc.login(logme).catch(reject);
+			rpc.login('499541939465486337').catch(reject);
 		});
 	}
 
@@ -142,7 +139,7 @@ class DiscordSender {
 		let largeImageKey = this.largeImage ? this.largeImage.icon : null;
 		let largeImageText = this.largeImage ? this.largeImage.text : null;
 
-		let smallImageKey = config.behaviour.alternativeIcon;
+		let smallImageKey = config.getTranslation('custom-asset') || config.behaviour.alternativeIcon;
 		let smallImageText = config.getTranslation('custom-website') || config.getTranslation('atom-description');
 
 		let startTimestamp = this.startTimestamp;
