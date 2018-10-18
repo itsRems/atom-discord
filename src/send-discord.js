@@ -107,7 +107,8 @@ class DiscordSender {
 				this.destroied = false;
 				resolve();
 			});
-			rpc.login(config.getTranslation('application-id')).catch(reject);
+			const logme = config.getTranslation('application-id');
+			rpc.login(logme).catch(reject);
 		});
 	}
 
