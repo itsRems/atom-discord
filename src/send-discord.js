@@ -115,13 +115,7 @@ class DiscordSender {
 				this.destroied = false;
 				resolve();
 			});
-			const APPLICATION_ID = config.getTranslation('application-id');
-			rpc.login(APPLICATION_ID).catch(reject);
-			if(APPLICATION_ID !== undefined || APPLICATION_ID !== null) {
-				rpc.login(APPLICATION_ID).catch(reject);
-			}else {
-				rpc.login(DISCORD_ID).catch(reject);
-			}
+			rpc.login(LOGIN_ID).catch(reject);
 		});
 	}
 
