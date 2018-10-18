@@ -3,7 +3,8 @@ const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
 
-const DISCORD_ID = ''
+const DISCORD_ID = '422582319459598337';
+var LOGIN_ID = '';
 
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
@@ -95,6 +96,13 @@ class DiscordSender {
 		}
 	}
 
+	const APPLICATION_ID = config.getTranslation('application-id');
+	if(APPLICATION_ID !== undefined || APPLICATION_ID !== null) {
+		LOGIN_ID = APPLICATION_ID;
+	}else {
+		LOGIN_ID = DISCORD_ID;
+	}
+
 	setupRpc() {
 		if(this.rpc) return;
 
@@ -108,7 +116,7 @@ class DiscordSender {
 				resolve();
 			});
 			const APPLICATION_ID = config.getTranslation('application-id');
-			console.log("lol wot: " + APPLICATION_ID);
+			rpc.login(APPLICATION_ID).catch(reject);
 			if(APPLICATION_ID !== undefined || APPLICATION_ID !== null) {
 				rpc.login(APPLICATION_ID).catch(reject);
 			}else {
