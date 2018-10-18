@@ -2,7 +2,8 @@ const {ipcMain} = require('electron');
 const path = require('path');
 const {Client} = require('../node_modules/discord-rpc/');
 const matched = require('../data/matched.json');
-atom.config.set('atom-discord-custom.test','lol');
+
+const DISCORD_ID = ''
 
 if (!String.prototype.padStart) {
 	String.prototype.padStart = function padStart(targetLength,padString) {
@@ -106,10 +107,12 @@ class DiscordSender {
 				this.destroied = false;
 				resolve();
 			});
-			if(config.getTranslation('application-id')) {
-				rpc.login(config.getTranslation('application-id')).catch(reject);
+			const APPLICATION_ID = config.getTranslation('application-id');
+			console.log(APPLICATION_ID);
+			if(APPLICATION_ID) {
+				rpc.login(APPLICATION_ID).catch(reject);
 			}else {
-				rpc.login('380510159094546443').catch(reject);
+				rpc.login(DISCORD_ID).catch(reject);
 			}
 		});
 	}
