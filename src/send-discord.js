@@ -142,7 +142,7 @@ class DiscordSender {
 		let largeImageText = this.largeImage ? this.largeImage.text : null;
 
 		let smallImageKey = config.behaviour.alternativeIcon;
-		let smallImageText = config.getTranslation('custom-website') : config.getTranslation('atom-description');
+		let smallImageText = config.getTranslation('custom-website') || config.getTranslation('atom-description');
 
 		let startTimestamp = this.startTimestamp;
 
