@@ -52,7 +52,7 @@ const normalize = (object) => {
 	return object;
 };
 
-const DISCORD_ID = config.getTranslation('application-id') || '380510159094546443';
+const DISCORD_ID = '422582319459598337';
 
 class DiscordSender {
 	constructor() {
@@ -142,7 +142,7 @@ class DiscordSender {
 		let largeImageText = this.largeImage ? this.largeImage.text : null;
 
 		let smallImageKey = config.behaviour.alternativeIcon;
-		let smallImageText = config.getTranslation('custom-website') || config.getTranslation('atom-description');
+		let smallImageText = config.getTranslation('application-id') || config.getTranslation('custom-website') || config.getTranslation('atom-description');
 
 		let startTimestamp = this.startTimestamp;
 
